@@ -128,19 +128,47 @@ def menu():
         choose = input("Выберите пункт меню: ")
 
         if choose == "1":
-            pass
+            firm = create_firm()
+            print("Фирма создана.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "2":
-            pass
+            if firm:
+                director = create_director()
+                firm.make_director(director)
+                print("Директор назначен.")
+            else:
+                print("Сначала создайте фирму.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "3":
-            pass
+            if firm:
+                worker = create_worker()
+                firm.make_worker(worker)
+                print("Сотрудник создан.")
+            else:
+                print("Сначала создайте фирму.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "4":
-            pass
+            if firm and firm.workers:
+                for i, worker in enumerate(firm.workers, start=1):
+                    print(f"{i}. {worker}")
+            else:
+                print("Нет сотрудников.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "5":
-            pass
+            if director:
+                print(director)
+            else:
+                print("Нет директора.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "6":
-            pass
+            if firm:
+                print(firm)
+            else:
+                print("Фирма не создана.")
+            input("Нажмите Enter, чтобы продолжить...")
         elif choose == "7":
-            pass
+            print("Выход из программы.")
+            break
 
 if __name__ == "__main__":
     menu()
